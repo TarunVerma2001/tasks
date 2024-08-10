@@ -1,3 +1,4 @@
+"use client";
 import { Switch } from "@/components/ui/switch";
 import { CheckIcon } from "@radix-ui/react-icons";
 import Image from "next/image";
