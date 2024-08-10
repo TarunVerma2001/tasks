@@ -1,7 +1,6 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "./header";
-import ScrollIcon from "./scroll-icon";
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
