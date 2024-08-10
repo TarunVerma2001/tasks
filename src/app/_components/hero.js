@@ -7,7 +7,11 @@ export default function Hero() {
         <Header />
       </div>
       <div className="absolute animate-spin-slow ">
-        <img src="/bg1.svg" alt="" className="opacity-20 scale-150" />
+        <img
+          src="/bg1.svg"
+          alt=""
+          className="opacity-20 scale-[300%]  lg:scale-150"
+        />
       </div>
       <div className="flex flex-col space-y-6 items-center">
         <div className="text-center flex flex-col space-y-4">

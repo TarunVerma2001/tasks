@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function Signup() {
   const router = useRouter();
   return (
-    <div className="h-screen w-full p-2 flex relative">
+    <div className="h-screen bg-[#f1ecf7] lg:bg-transparent w-full p-2 flex relative">
       <img
         src="/bottomRightDots.svg"
         className="absolute bottom-0 right-0"
@@ -34,35 +35,45 @@ export default function Signup() {
         </div>
         <img src="/vector.svg" className="z-20 " alt="" />
       </div>
-      <div className="flex-1 h-full flex p-16 flex-col space-y-8 justify-center items-center">
+      <div className="flex-1 h-full  flex p-8 lg:p-16 flex-col w-full space-y-8 justify-center items-center">
+        <div className="flex space-x-2 ">
+          <img src="/logotask.svg" className="w-[75px] lg:w-auto" alt="" />
+          <img
+            src="/logotasktext.svg"
+            className=" w-[133px] lg:w-auto"
+            alt=""
+          />
+        </div>
         <div className="flex flex-col space-y-4 items-center">
-          <h1 className="text-3xl text-[#ae3df3]">Create your new account</h1>
-          <h2 className="text-2xl">Signup to your ccount</h2>
+          <h1 className="lg:text-3xl text-xl text-[#ae3df3]">
+            Create your new Account
+          </h1>
+          <h2 className="lg:text-2xl text-lg">Signup to your ccount</h2>
         </div>
         <div className="flex flex-col w-full space-y-6">
           <div className="flex flex-col space-y-2">
             <Label className="text-muted-foreground">Name</Label>
             <Input
-              className="w-full rounded-xl p-4 h-auto"
+              className="w-full bg-white rounded-xl p-4 h-auto"
               placeholder="Enter your Name"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <Label className="text-muted-foreground">Email</Label>
             <Input
-              className="w-full rounded-xl p-4 h-auto"
+              className="w-full bg-white rounded-xl p-4 h-auto"
               placeholder="Enter your Email"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <Label className="text-muted-foreground">Password</Label>
             <Input
-              className="w-full rounded-xl p-4 h-auto"
+              className="w-full bg-white rounded-xl p-4 h-auto"
               placeholder="Enter your Password"
             />
           </div>
           <Button className="bgGradiant h-auto w-full p-4 flex cursor-pointer justify-center text-white items-center">
-            <h1>Login</h1>
+            <h1>Signup</h1>
           </Button>
 
           <div className="px-8 flex items-center space-x-6 justify-center">
@@ -71,10 +82,10 @@ export default function Signup() {
             <div className="w-32 h-[1px] bg-muted" />
           </div>
 
-          <div className="grid grid-cols-2 gap-5">
+          <div className="lg:grid flex justify-center grid-cols-2 gap-5">
             <Button
               variant="outline"
-              className="p-4 border h-auto rounded-xl flex justify-center space-x-4 items-center"
+              className="p-4 lg:px-4 px-8 border h-auto rounded-xl flex justify-center space-x-4 items-center"
             >
               <svg
                 width="24"
@@ -112,11 +123,11 @@ export default function Signup() {
                   </clipPath>
                 </defs>
               </svg>
-              <h1>Continue with Google</h1>
+              <h1 className="hidden lg:flex">Continue with Google</h1>
             </Button>
             <Button
               variant="outline"
-              className="p-4 h-auto border rounded-xl flex justify-center space-x-4 items-center"
+              className="p-4 lg:px-4 px-8 h-auto border rounded-xl flex justify-center space-x-4 items-center"
             >
               <svg
                 width="25"
@@ -147,7 +158,7 @@ export default function Signup() {
                 </defs>
               </svg>
 
-              <h1>Continue with Apple</h1>
+              <h1 className="hidden lg:flex">Continue with Apple</h1>
             </Button>
           </div>
 
