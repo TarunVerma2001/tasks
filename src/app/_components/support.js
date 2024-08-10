@@ -5,7 +5,7 @@ export default function Support() {
     <div className="bg-[#12021f] relative">
       <div className="lg:py-[300px] py-[100px] p-8  flex flex-col justify-center items-center space-y-16">
         <div className="text-center flex flex-col space-y-4">
-          <h1 className=" text-3xl lg:text-5xl text-background">
+          <h1 className=" text-3xl lg:text-5xl text-white">
             Supported Platforms
           </h1>
           <div className="hidden lg:flex flex-col text-muted-foreground">
@@ -17,8 +17,9 @@ export default function Support() {
             borderWidth={0.7}
             borderRadius={12}
             color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-            className="max-w-[378px] flex-col justify-between flex  p-4  bg-[#c9c9c9]/[0.06] h-[225px]"
+            className="max-w-[378px] flex-col justify-between flex  p-4  dark:bg-[#c9c9c9]/[0.06] bg-[#c9c9c9]/[0.06]  h-[225px]"
           >
+            {/* <div className="bg-white"> */}
             <img src="/playstore.svg" alt="" />
             <div className="flex flex-col text-center items-center space-y-2">
               <h1 className="text-white text-2xl">Android</h1>
@@ -27,12 +28,13 @@ export default function Support() {
                 or tablet.
               </h2>
             </div>
+            {/* </div> */}
           </ShineBorder>
           <ShineBorder
             borderWidth={0.7}
             borderRadius={12}
             color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-            className="max-w-[378px] flex-col justify-between flex  p-4  bg-[#c9c9c9]/[0.06] h-[225px]"
+            className="max-w-[378px] flex-col justify-between flex  p-4  dark:bg-[#c9c9c9]/[0.06] bg-[#c9c9c9]/[0.06]  h-[225px]"
           >
             <img src="/alexa.svg" alt="" />
             <div className="flex flex-col text-center items-center space-y-2">
@@ -46,7 +48,7 @@ export default function Support() {
             borderWidth={0.7}
             borderRadius={12}
             color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-            className="max-w-[378px] flex-col justify-between flex  p-4  bg-[#c9c9c9]/[0.06] h-[225px]"
+            className="max-w-[378px] flex-col justify-between flex  p-4  dark:bg-[#c9c9c9]/[0.06] bg-[#c9c9c9]/[0.06]  h-[225px]"
           >
             <img src="/applestore.svg" alt="" />
             <div className="flex flex-col text-center items-center space-y-2">

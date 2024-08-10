@@ -11,17 +11,11 @@ import Footer from "./_components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <main className="">
       <Hero />
-      <div className="  w-full text-[#5b5b5b] relative   p-8  flex flex-col items-center bg-background  lg:text-2xl">
-        <h1 className="text-center">
-          This versatile to-do board app supports Mac, iOS, Windows, and more,
-          ensuring seamless task
-        </h1>
-        <h1 className="">management across all your devices.</h1>
-      </div>
+
       {/* info */}
-      <Info />
+      {/* <Info /> */}
       {/* pricing */}
       <Pricing />
       {/* support platform */}

@@ -3,37 +3,35 @@ import { CheckIcon } from "@radix-ui/react-icons";
 
 export default function Pricing() {
   return (
-    <div className="py-[100px] flex flex-col space-y-4 bg-background relative items-center">
-      <h1 className="text-4xl text-foreground font-semibold">
-        Plans & Pricing
-      </h1>
+    <div className="py-[100px] bg-white flex flex-col space-y-4 relative items-center">
+      <h1 className="text-4xl text-black font-semibold">Plans & Pricing</h1>
       <div className="flex space-x-4">
         <h1 className="text-muted-foreground">Monthly</h1>
-        <Switch />
+        <Switch className="bg-white " />
         <h1 className="text-muted-foreground">Yearly</h1>
         <div className="rounded-full bg-[#f7f0fe] text-[#874ef0] text-xs p-2 py-1 font-semibold">
           25% OFF
         </div>
       </div>
       <div className="flex gap-8    lg:space-x-6 justify-center items-center">
-        <div className="border justify-between lg:hidden w-[155px] h-[132px] p-6 rounded-lg bg-[#f8f1ff] flex items-start flex-col items-center space-y-4">
+        <div className="border border-gray-300 justify-between lg:hidden w-[155px] h-[132px] p-6 rounded-lg bg-[#f8f1ff] flex flex-col items-center space-y-4">
           <h1 className="text-2xl font-semibold">$28</h1>
-          <div className="p-2 px-4 rounded-xl bg-background text-[#874ef0] font-semibold  text-sm">
+          <div className="p-2 px-4 rounded-xl bg-white text-[#874ef0] font-semibold  text-sm">
             BASIC
           </div>
         </div>
-        <div className="border pricing justify-between lg:hidden w-[155px] h-[132px] p-6 rounded-lg bg-[#f8f1ff] flex items-start flex-col items-center space-y-4">
+        <div className="border  border-gray-300 pricing justify-between lg:hidden w-[155px] h-[132px] p-6 rounded-lg bg-[#f8f1ff] flex items-start flex-col items-center space-y-4">
           <h1 className="text-2xl font-semibold">$28</h1>
-          <div className="p-2 px-4 rounded-xl bg-background text-[#874ef0] font-semibold  text-sm">
+          <div className="p-2 px-4 rounded-xl bg-white text-[#874ef0] font-semibold  text-sm">
             STANDARD
           </div>
         </div>
-        <div className="hidden  border justify-between w-[335px] h-[524px] p-6 rounded-lg bg-[#f8f1ff] lg:flex items-start flex-col space-y-4">
-          <div className="p-2 rounded-lg bg-background text-[#874ef0] font-semibold  text-sm">
+        <div className="hidden  border border-gray-300 justify-between w-[335px] h-[524px] p-6 rounded-lg bg-[#f8f1ff] lg:flex items-start flex-col space-y-4">
+          <div className="p-2 rounded-lg bg-white text-[#874ef0] font-semibold  text-sm">
             BASIC
           </div>
-          <h1 className="text-5xl font-semibold">$28</h1>
-          <div className="flex flex-col space-y-4">
+          <h1 className="text-5xl font-semibold text-black">$28</h1>
+          <div className="flex text-black flex-col space-y-4">
             <div className="flex items-center space-x-2 ">
               <CheckIcon className="h-5 w-" />
               <h1>Create Edit Tasks</h1>
@@ -63,8 +61,8 @@ export default function Pricing() {
             <h1>Get started for Free</h1>
           </div>
         </div>
-        <div className="border justify-between pricing w-[369px] h-[580px] p-6 rounded-xl bg-[#f8f1ff] hidden lg:flex items-start flex-col space-y-4">
-          <div className="p-2 rounded-lg bg-background text-black font-semibold  text-sm">
+        <div className="border border-gray-300 justify-between pricing w-[369px] h-[580px] p-6 rounded-xl bg-[#f8f1ff] hidden lg:flex items-start flex-col space-y-4">
+          <div className="p-2 rounded-lg bg-white text-black font-semibold  text-sm">
             STANDARD
           </div>
           <h1 className="text-5xl font-semibold text-white">$28</h1>
