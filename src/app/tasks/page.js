@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import TaskCard from "../_components/task-card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { PlusIcon } from "@radix-ui/react-icons";
+import { HamburgerMenuIcon, PlusIcon } from "@radix-ui/react-icons";
 import {
   Dialog,
   DialogContent,
@@ -17,8 +17,8 @@ import { Textarea } from "@/components/ui/textarea";
 
 export default function Tasks() {
   return (
-    <div className="dark:bg-[#0b0114] bg-[#f2eef7] relative h-screen  flex  flex-col space-y-6 w-full">
-      <div className=" px-[24px] py-4    w-full lg:grid flex justify-between lg:grid-cols-3">
+    <div className="dark:bg-[#0b0114] bg-[#f2eef7] relative h-screen  flex  flex-col gap-6 w-full">
+      <div className=" px-[24px] py-4    w-full lg:grid   hidden lg:grid-cols-3">
         <div className="flex space-x-2">
           <img src="/logotask.svg" alt="" />
           <img src="/logotasktext.svg" className="w-[56px] lg:w-auto" alt="" />
@@ -36,10 +36,11 @@ export default function Tasks() {
         </div>
       </div>
 
-      <div className="flex flex-col h-full flex-1 overflow-hidden  px-8">
-        <div className="flex flex-col  dark:bg-[#150b1d] bg-[#fcfaff] space-y-4 h-full  rounded-t-xl">
+      <div className="flex flex-col h-full flex-1 overflow-hidden  lg:px-8">
+        <div className="flex flex-col  dark:bg-[#150b1d] bg-[#fcfaff] space-y-4 h-full  lg:rounded-t-xl">
           <div className="dark:bg-[#191022] bg-white p-6 rounded-t-xl flex justify-between items-center">
             <div className="flex space-x-4 items-center">
+              <HamburgerMenuIcon className="h-6 w-6 lg:hidden" />
               <h1 className="">Task</h1>
               <h2 className="dark:bg-[#291a38] bg-[#f7eefe] rounded-lg text-[#bd6efa] px-2 py-1">
                 05
@@ -65,9 +66,9 @@ export default function Tasks() {
           </div>
         </div>
       </div>
-      <Dialog>
+      <Dialog className="">
         <DialogTrigger>
-          <div className="fixed h-10 rounded-lg flex text-white items-center px-4 bottom-8 right-8 z-50 bg-[#bd6efa] space-x-2">
+          <div className="fixed h-10 rounded-lg hidden lg:flex text-white items-center px-4 bottom-8 right-8 z-50 bg-[#bd6efa] space-x-2">
             <PlusIcon className="h-4 w-4" />
             <h1> Add new task</h1>
           </div>
@@ -104,10 +105,10 @@ export default function Tasks() {
         </DialogContent>
       </Dialog>
 
-      <div className="z-30 dark:flex fixed hidden  flex justify-center bottom-0 w-full">
+      <div className="z-30 dark:flex fixed hidden   justify-center bottom-0 w-full">
         <img
           src="/micDark.svg"
-          className="absolute -top-14  w-[123px]"
+          className="absolute -lg:top-14 -top-10  w-[84px] lg:w-[123px]"
           alt=""
         />
 
@@ -117,7 +118,7 @@ export default function Tasks() {
       <div className="z-30 dark:hidden fixed w-full flex justify-center bottom-0">
         <img
           src="/micLight.svg"
-          className="absolute -top-14  w-[123px]"
+          className="absolute -lg:top-14 -top-10 w-[84px] lg:w-[123px]"
           alt=""
         />
         <img src="/bottomArcLight.svg " className="" alt="" />
