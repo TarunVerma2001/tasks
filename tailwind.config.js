@@ -83,6 +83,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-slow": "spin 20s linear infinite",
+        "spin-rec": "spin 3s linear infinite",
       },
     },
   },

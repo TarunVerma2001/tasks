@@ -37,7 +37,7 @@ export default function Hero() {
 
   return (
     <div>
-      <div className="px-[44px]  py-[24px] pt-[100px]  pb-[100px]   bg-[#1c1740]   relative  flex flex-col space-y-4 lg:space-y-16 items-center">
+      <div className="px-[44px] h-screen py-[24px] pt-[100px]  pb-[100px]   bg-[#1c1740]   relative  flex flex-col space-y-4 lg:space-y-4 items-center">
         <div className="absolute lg:flex w-full lg:px-8 top-0 lg:top-8">
           <Header />
         </div>
@@ -48,13 +48,13 @@ export default function Hero() {
             className="opacity-20 scale-[300%]  lg:scale-150"
           />
         </div>
-        <div className="flex flex-col space-y-6 items-center">
+        <div className="flex flex-col space-y-4 pt-8 items-center">
           <div className="text-center flex flex-col space-y-4">
-            <h1 className="lg:text-4xl text-2xl lg:text-[46px] text-white">
+            <h1 className="lg:text-3xl text-2xl lg:text-[46px] text-white">
               Effortlessly Planning with{" "}
               <span className=" text-[#bd6efa]">AI.</span>{" "}
             </h1>
-            <h1 className="lg:text-4xl text-2xl lg:text-[46px] text-white">
+            <h1 className="lg:text-2xl text-2xl lg:text-[46px] text-white">
               <span className="text-[#bd6efa]">Speak </span>
               your Task into Existence
             </h1>
@@ -71,8 +71,8 @@ export default function Hero() {
           </div>
         </div>
         <div className="w-full z-50 relative   flex justify-center items-baseline ">
-          <img src="/laptopBig2.svg" className=" z-20" alt="" />
-          <div className="absolute w-full h-full  pb-8  flex items-end justify-center">
+          <img src="/laptopBig2.svg" className="w-[1024px] z-20" alt="" />
+          <div className="absolute lg:hidden w-full h-full  pb-8  flex items-end justify-center">
             <motion.div
               style={{ x: iconX2, y: iconY2, width: iconWidth2 }}
               className=" w-[50px] z-[100] rounded-full"
@@ -109,7 +109,7 @@ export default function Hero() {
         <h1 className="">management across all your devices.</h1>
       </div>
       <div className="bg-[#12021f] relative">
-        <div className="lg:py-[200px] py-[100px]  flex flex-col justify-center items-center px-8  lg:grid grid-cols-2">
+        <div className="h-screen  flex flex-col justify-center items-center px-8  lg:grid grid-cols-2">
           <div className="lg:flex hidden items-center justify-center">
             {/* <img src="/recorder.svg" alt="" /> */}
           </div>
@@ -156,7 +156,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="lg:py-[200px] py-[100px]   flex flex-col justify-center items-center space-y-16">
+        <div className="h-screen flex flex-col justify-center items-center space-y-16">
           <div className="text-center flex flex-col space-y-4">
             <h1 className=" text-3xl lg:text-5xl text-background text-white">
               How it Works
