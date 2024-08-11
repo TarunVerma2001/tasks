@@ -15,7 +15,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Drawer,
   DrawerClose,
@@ -32,8 +32,34 @@ import { Progress } from "@/components/ui/progress";
 export default function Tasks() {
   const [tasks, setTasks] = useState([1, 2, 3, 4, 5, 6]);
   const [micActive, setMicActive] = useState(false);
+
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+        // Call the function here if clicked outside the button
+        handleOutsideClick();
+      }
+    };
+
+    // Attach the event listener to the whole document
+    document.addEventListener("click", handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  const handleOutsideClick = () => {
+    console.log("Clicked outside the button!");
+    setMicActive(false);
+    // Your function logic goes here
+  };
+
   return (
-    <div className="dark:bg-[#0b0114] bg-[#f2eef7] relative h-screen  flex  flex-col gap-6 w-full">
+    <div className="dark:bg-[#0b0114] bg-[#f2eef7] relative h-screen  flex  flex-col  w-full">
       <div className=" px-[24px] py-4    w-full lg:grid   hidden lg:grid-cols-3">
         <div className="flex space-x-2">
           <img src="/logotask.svg" alt="" />
@@ -110,7 +136,7 @@ export default function Tasks() {
         </DrawerContent>
       </Drawer>
       <div className="hidden lg:flex">
-        <Dialog className="">
+        <Dialog>
           <DialogTrigger>
             <div className="fixed h-10 rounded-lg hidden lg:flex text-white items-center px-4 bottom-8 right-8 z-50 bg-[#bd6efa] space-x-2">
               <PlusIcon className="h-4 w-4" />
@@ -149,39 +175,97 @@ export default function Tasks() {
           </DialogContent>
         </Dialog>
       </div>
-      <div className={cn(" fixed bottom-0 left-0 z-50  w-full")}>
-        <Progress value={(100 / 6) * (6 - tasks.length)} className="w-full " />
-      </div>
-      <div className="z-30 dark:flex fixed hidden transition   justify-center bottom-0 w-full">
-        <img
-          onClick={() => setMicActive(!micActive)}
-          src="/micDark.svg"
+
+      <div className="z-30  flex fixed  transition  transform duration-200 ease-out justify-center bottom-4 w-full">
+        <div
           className={cn(
-            "absolute -lg:top-14 -top-10 z-50   w-[84px] lg:w-[123px]",
-            micActive && "scale-110",
+            "w-full flex justify-center  transition  transform duration-200 ease-out fixed bottom-0 translate-y-[80%] -lg:bottom-28",
+            micActive && "translate-y-0 ",
           )}
-          alt=""
-        />
-        {micActive && (
+        >
           <img
-            src="/blobs.svg"
+            src="/bgArcDark.svg"
+            className="w-full hidden dark:flex"
+            alt=""
+          />
+          <img
+            src="/bgArcLight.svg"
+            className="w-full dark:hidden flex"
+            alt=""
+          />
+
+          {micActive && (
+            <h1 className="absolute bottom-4 ">jo bhi main kehna chahu</h1>
+          )}
+          <img
+            ref={buttonRef}
+            onClick={() => setMicActive(!micActive)}
+            src="/micDark.svg"
             className={cn(
-              "absolute -lg:top-16 -top-12   w-[84px] lg:w-[123px]",
-              micActive && " w-[100px] lg:w-[150px]  animate-spin-rec",
+              "absolute -top-12  transition  transform duration-200 ease-out z-50  cursor-pointer w-[84px] lg:w-[123px]",
+              // micActive && "scale-110 translate",
             )}
             alt=""
           />
-        )}
-        <img src="/bottomArc.svg" alt="" />
+          {micActive && (
+            <img
+              src="/blobs.svg"
+              className={cn(
+                "absolute -top-14 z-30  w-[84px] lg:w-[123px]",
+                micActive &&
+                  " w-[100px] lg:w-[150px] bottom-2 lg:bottom-20  animate-spin-rec",
+              )}
+              alt=""
+            />
+          )}
+        </div>
       </div>
 
-      <div className="z-30 dark:hidden transition fixed w-full flex justify-center bottom-0">
+      {/* <div className="z-30  flex fixed dark:hidden transition   justify-center bottom-4 w-full">
+        <div
+          className={cn(
+            "w-full flex justify-center fixed bottom-0 translate-y-[80%] -lg:bottom-28",
+            micActive && "translate-y-0 ",
+          )}
+        >
+          <img src="/bgArcLight.svg" className="w-full" alt="" />
+          {micActive && (
+            <h1 className="absolute bottom-4 ">jo bhi main kehna chahu</h1>
+          )}
+          <img
+            // ref={buttonRef}
+            onClick={() => setMicActive(!micActive)}
+            src="/micDark.svg"
+            className={cn(
+              "absolute -top-12 z-50 dark:hidden  w-[84px] lg:w-[123px]",
+              // micActive && "scale-110 translate",
+            )}
+            alt=""
+          />
+          {micActive && (
+            <img
+              src="/blobs.svg"
+              className={cn(
+                "absolute -top-14 z-30  w-[84px] lg:w-[123px]",
+                micActive &&
+                  " w-[100px] lg:w-[150px] bottom-2 lg:bottom-20  animate-spin-rec",
+              )}
+              alt=""
+            />
+          )}
+        </div>
+      </div> */}
+      <div className={cn(" fixed bottom-0 left-0 z-50  w-full")}>
+        <Progress value={(100 / 6) * (6 - tasks.length)} className="w-full " />
+      </div>
+
+      {/* <div className="z-30 dark:hidden transition fixed w-full flex justify-center bottom-8">
         <img
           onClick={() => setMicActive(!micActive)}
           src="/micLight.svg"
           className={cn(
-            "absolute -lg:top-14 -top-10 z-50  w-[84px] lg:w-[123px]",
-            micActive && "scale-105",
+            "fixed -bottom-4  lg:bottom-20 z-50   w-[84px] lg:w-[123px]",
+            micActive && "scale-110 bottom-4 lg:bottom-24",
           )}
           alt=""
         />
@@ -189,18 +273,22 @@ export default function Tasks() {
           <img
             src="/blobs.svg"
             className={cn(
-              "absolute -lg:top-16 -top-12   w-[84px] lg:w-[123px]",
-              micActive && " w-[100px] lg:w-[150px]  animate-spin-rec",
+              "fixed -bottom-5 lg:bottom-10 z-30  w-[84px] lg:w-[123px]",
+              micActive &&
+                " w-[100px] lg:w-[150px] bottom-2 lg:bottom-20  animate-spin-rec",
             )}
             alt=""
           />
         )}
         <img
           src="/bottomArcLight.svg "
-          className={cn("w-full", micActive && "bottom-8")}
+          className={cn(
+            "w-full fixed -bottom-4 -lg:bottom-28",
+            micActive && " bottom-0 ",
+          )}
           alt=""
         />
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function Login() {
   const router = useRouter();
   return (
-    <div className="h-screen bg-[#f1ecf7] lg:bg-transparent w-full p-2 flex relative">
+    <div className="h-screen bg-[#f1ecf7] lg:bg-white w-full p-2 flex relative">
       <img
         src="/bottomRightDots.svg"
         className="absolute bottom-0 right-0"
@@ -52,14 +52,14 @@ export default function Login() {
           <div className="flex flex-col space-y-2">
             <Label className="text-muted-foreground">Email</Label>
             <Input
-              className="w-full bg-white rounded-xl p-4 h-auto"
+              className="w-full bg-white border-gray-300 rounded-xl p-4 h-auto"
               placeholder="Enter your Email"
             />
           </div>
           <div className="flex flex-col space-y-2">
             <Label className="text-muted-foreground">Password</Label>
             <Input
-              className="w-full bg-white rounded-xl p-4 h-auto"
+              className="w-full bg-white border-gray-300 rounded-xl p-4 h-auto"
               placeholder="Enter your Password"
             />
           </div>
@@ -76,7 +76,7 @@ export default function Login() {
           <div className="lg:grid flex justify-center grid-cols-2 gap-5">
             <Button
               variant="outline"
-              className="p-4 lg:px-4 px-8 border h-auto rounded-xl flex justify-center space-x-4 items-center"
+              className="p-4 lg:px-4 bg-white text-black/[0.5] border-gray-300 px-8 border h-auto rounded-xl flex justify-center space-x-4 items-center"
             >
               <svg
                 width="24"
@@ -118,7 +118,7 @@ export default function Login() {
             </Button>
             <Button
               variant="outline"
-              className="p-4 lg:px-4 px-8 h-auto border rounded-xl flex justify-center space-x-4 items-center"
+              className="p-4 lg:px-4 bg-white text-black/[0.5] border-gray-300 px-8 h-auto border rounded-xl flex justify-center space-x-4 items-center"
             >
               <svg
                 width="25"
@@ -153,7 +153,7 @@ export default function Login() {
             </Button>
           </div>
 
-          <h1 className="text-center">
+          <h1 className="text-center text-black">
             Don't have an account?{" "}
             <span
               onClick={() => router.push("/signup")}
