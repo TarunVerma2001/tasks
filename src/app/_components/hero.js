@@ -3,51 +3,60 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "./header";
 
 export default function Hero() {
-  console.log(window.innerHeight);
   const { scrollYProgress } = useScroll();
 
   // Transform the icon's position based on the scroll progress
-  const iconY = useTransform(
-    scrollYProgress,
-    [0, 0.15],
-    [
-      0,
-      window.innerHeight > 1200
+  const getIconYValue = () => {
+    if (typeof window !== "undefined") {
+      return window.innerHeight > 1200
         ? window.innerHeight - 250
-        : window.innerHeight - 100,
-    ],
-    { clamp: true },
-  );
-  const iconX = useTransform(
-    scrollYProgress,
-    [0, 0.15],
-    [0, -window.innerWidth / 6],
-    {
-      clamp: true,
-    },
-  );
+        : window.innerHeight - 100;
+    }
+    return 0; // Default value for server-side rendering
+  };
+
+  const iconY = useTransform(scrollYProgress, [0, 0.15], [0, getIconYValue()], {
+    clamp: true,
+  });
+
+  const getIconXValue = () => {
+    if (typeof window !== "undefined") {
+      return -window.innerWidth / 6;
+    }
+    return 0; // Default value for server-side rendering
+  };
+
+  const iconX = useTransform(scrollYProgress, [0, 0.15], [0, getIconXValue()], {
+    clamp: true,
+  });
+
+  const getHeadYValue = () => {
+    if (typeof window !== "undefined") {
+      return window.innerHeight > 1200
+        ? 2.5 * window.innerHeight
+        : 3 * window.innerHeight;
+    }
+    return 0; // Default value for server-side rendering
+  };
 
   const headY = useTransform(
     scrollYProgress,
     [0.25, 0.6],
-    [
-      0,
-
-      window.innerHeight > 1200
-        ? 2.5 * window.innerHeight
-        : 3 * window.innerHeight,
-    ],
+    [0, getHeadYValue()],
     {
       clamp: true,
-    },
+    }
   );
   const icon1Y = useTransform(
     scrollYProgress,
     [0.3, 0.7],
-    [-window.innerHeight / 2, 3 * window.innerHeight],
+    [
+      typeof window !== "undefined" ? -window.innerHeight / 2 : 0,
+      typeof window !== "undefined" ? 3 * window.innerHeight : 0,
+    ],
     {
       clamp: true,
-    },
+    }
   );
 
   const icon1X = useTransform(scrollYProgress, [0.35, 0.45], [300, 0], {
